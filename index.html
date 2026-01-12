@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Member Area - Premium Access</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #7c3aed;
+      --primary-dark: #5b21b6;
+      --dark: #0f172a;
+      --gray: #334155;
+      --light: #f8fafc;
+      --gradient: linear-gradient(135deg, #6b7280 0%, #1e293b 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--gradient);
+      color: var(--light);
+      min-height: 100vh;
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 0 30px;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 12px;
+      background: linear-gradient(90deg, #a78bfa, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .welcome {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      margin-bottom: 10px;
+    }
+
+    .username {
+      color: #c084fc;
+      font-weight: 600;
+    }
+
+    .membership-info {
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(167, 139, 250, 0.2);
+      border-radius: 16px;
+      padding: 25px;
+      margin: 30px 0;
+      text-align: center;
+    }
+
+    .status-badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #10b981, #34d399);
+      color: white;
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-weight: bold;
+      margin: 12px 0;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    }
+
+    .expire-date {
+      font-size: 1.1rem;
+      margin: 15px 0;
+      color: #94a3b8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin: 40px 0;
+    }
+
+    .card {
+      background: rgba(30, 41, 59, 0.65);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(167, 139, 250, 0.15);
+      border-radius: 16px;
+      padding: 28px 24px;
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(167, 139, 250, 0.5);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 20%, rgba(167,139,250,0.15) 0%, transparent 40%);
+      pointer-events: none;
+      transition: all 0.6s;
+    }
+
+    .card:hover::before {
+      transform: scale(1.2);
+    }
+
+    .card-icon {
+      font-size: 2.8rem;
+      margin-bottom: 18px;
+      color: var(--primary);
+    }
+
+    .card h3 {
+      margin-bottom: 14px;
+      color: #e0e7ff;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 18px;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .logout {
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      header h1 { font-size: 2.2rem; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Selamat Datang di Member Area</h1>
+      <p class="welcome">Hai, <span class="username" id="username-display">Premium Member</span>! ✨</p>
+    </header>
+
+    <div class="membership-info">
+      <div class="status-badge">
+        <i class="fas fa-crown"></i> Premium Active
+      </div>
+      <p class="expire-date">Berlaku sampai: <strong>15 Februari 2026</strong></p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-video"></i></div>
+        <h3>Video Eksklusif</h3>
+        <p>Akses lebih dari 250+ video premium yang tidak tersedia di paket gratis</p>
+        <a href="#" class="btn">Mulai Nonton</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-download"></i></div>
+        <h3>Download Tanpa Batas</h3>
+        <p>Unduh semua konten tanpa batasan kuota dan watermark</p>
+        <a href="#" class="btn">Lihat Koleksi</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-users"></i></div>
+        <h3>Private Community</h3>
+        <p>Bergabung dengan grup eksklusif & diskusi langsung dengan creator</p>
+        <a href="#" class="btn btn-outline">Gabung Sekarang</a>
+      </div>
+    </div>
+
+    <div class="logout">
+      <button class="btn btn-outline" onclick="alert('Fitur logout belum diimplementasikan di demo ini')">Logout</button>
+    </div>
+  </div>
+
+  <script>
+    // Contoh pengisian nama user (biasanya dari backend/session)
+    const username = localStorage.getItem("username") || "Premium Member";
+    document.getElementById("username-display").textContent = username;
+  </script>
+
+</body>
+  </html>
